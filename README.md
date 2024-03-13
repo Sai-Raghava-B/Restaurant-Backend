@@ -1,2 +1,2 @@
 I have made required backend as per the problem statement.
-I have shared you the postman collection also. You have to just press on send button. I have used scripts to automate the accesstoken  so that it can be updated in evry end point whenever there is a new end point so that it would be easy.
+I have shared you the postman collection also.  Just have to just press the send button. I have used scripts to automate the access token so that it can be updated at every end point whenever there is a new access token so that it would be easy.
