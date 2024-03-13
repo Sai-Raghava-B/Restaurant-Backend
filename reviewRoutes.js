@@ -3,7 +3,7 @@ import { authenticateJWT } from './authMiddleware.js';
 import Review from './Review.js';
 
 const router = express.Router();
-
+//adding review
 router.post('/reviews', authenticateJWT, async (req, res) => {
   if (req.user.role !== 'user'  && req.user.role !== 'admin') {
     return res.sendStatus(403);
@@ -18,7 +18,7 @@ router.post('/reviews', authenticateJWT, async (req, res) => {
     res.status(500).send('Error creating review');
   }
 });
-
+//getting all reviews
 router.get('/reviews', authenticateJWT, async (req, res) => {
   try {
     const reviews = await Review.find();
@@ -28,7 +28,7 @@ router.get('/reviews', authenticateJWT, async (req, res) => {
     res.status(500).send('Error fetching reviews');
   }
 });
-
+//updating a review
 router.put('/reviews/:id', authenticateJWT, async (req, res) => {
   if (req.user.role !== 'user' && req.user.role !== 'admin') {
     return res.sendStatus(403);
@@ -42,7 +42,7 @@ router.put('/reviews/:id', authenticateJWT, async (req, res) => {
     res.status(500).send('Error updating review');
   }
 });
-
+//deleting a review
 router.delete('/reviews/:id', authenticateJWT, async (req, res) => {
   if (req.user.role !== 'user' && req.user.role !== 'admin') {
     return res.sendStatus(403);
@@ -58,7 +58,7 @@ router.delete('/reviews/:id', authenticateJWT, async (req, res) => {
     res.status(500).send('Error deleting review');
   }
 });
-
+//responding to a review
 router.put('/reviews/:id/response', authenticateJWT, async (req, res) => {
   if (req.user.role !== 'business_owner' && req.user.role !== 'admin') {
     return res.sendStatus(403);
